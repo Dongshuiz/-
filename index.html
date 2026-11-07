@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="张镓文的星系：五颗星，五种自我介绍。点一颗，飞过去看。" />
+    <meta name="theme-color" content="#06080B" />
+    <title>张镓文 · 星系</title>
+
+    <!-- 图标：Iconify -->
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      html, body { margin: 0; background: #06080b; color: #e8e2d4; }
+      #boot {
+        min-height: 100vh;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 20px;
+        font-family: system-ui, -apple-system, "PingFang SC", sans-serif;
+        overflow: hidden;
+      }
+      /* 初始化：一个转起来的轨道 + 一颗星 */
+      #boot .sys { position: relative; width: 150px; height: 150px; }
+      #boot .sys i {
+        position: absolute; inset: 0;
+        border: 1px solid rgba(255, 106, 26, 0.35);
+        border-radius: 50%;
+        transform: rotateX(68deg);
+      }
+      #boot .sys i:nth-child(2) { inset: 22px; border-color: rgba(36, 224, 176, 0.3); }
+      #boot .sys b {
+        position: absolute; left: 50%; top: 50%;
+        width: 26px; height: 26px; margin: -13px 0 0 -13px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 34% 30%, #ffd0a8, #ff6a1a 52%, #7a2400 100%);
+        box-shadow: 0 0 28px rgba(255, 106, 26, 0.55);
+        animation: bootPulse 2.2s cubic-bezier(0.34, 1.4, 0.64, 1) infinite;
+      }
+      #boot .sys .s {
+        position: absolute; width: 7px; height: 7px; border-radius: 50%;
+        background: #24e0b0; box-shadow: 0 0 12px #24e0b0;
+        offset-path: path("M 75,10 A 65,65 0 1,1 74.9,10");
+        animation: bootOrbit 5.5s linear infinite;
+      }
+      #boot p {
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 10px; letter-spacing: 0.32em; margin: 0;
+        color: rgba(232, 226, 212, 0.4); text-transform: uppercase;
+      }
+      @keyframes bootPulse {
+        0%,100% { transform: scale(1); }
+        50% { transform: scale(1.18); }
+      }
+      @keyframes bootOrbit { to { offset-distance: 100%; } }
+      #root:not(:empty) + #boot { display: none; }
+    </style>
+    <script type="module" crossorigin src="./assets/index-DnvhwS0a.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-hNXhnxeJ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="boot">
+      <div class="sys"><i></i><i></i><b></b><span class="s"></span></div>
+      <p>正在点火</p>
+    </div>
+  </body>
+</html>
