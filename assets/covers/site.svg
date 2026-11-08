@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="这个星系：五颗行星的轨道界面">
+  <defs>
+    <radialGradient id="sun" cx="34%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#FFD9B8"/>
+      <stop offset="45%" stop-color="#FF6A1A"/>
+      <stop offset="100%" stop-color="#5C1C00"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6A1A" stop-opacity=".45"/>
+      <stop offset="100%" stop-color="#FF6A1A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0A0E14" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0A0E14"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="#0A0E14"/>
+  <g stroke="#E8E2D4" stroke-opacity=".05">
+    <path d="M0 60H640M0 120H640M0 180H640M0 240H640M0 300H640M0 360H640"/>
+    <path d="M80 0V420M160 0V420M240 0V420M320 0V420M400 0V420M480 0V420M560 0V420"/>
+  </g>
+  <circle cx="380" cy="225" r="190" fill="url(#glow)"/>
+  <g fill="none" stroke="#E8E2D4" stroke-opacity=".22">
+    <ellipse cx="380" cy="225" rx="230" ry="94" transform="rotate(-16 380 225)"/>
+    <ellipse cx="380" cy="225" rx="176" ry="72" transform="rotate(-16 380 225)"/>
+    <ellipse cx="380" cy="225" rx="122" ry="50" transform="rotate(-16 380 225)"/>
+  </g>
+  <g>
+    <circle cx="380" cy="225" r="96" fill="url(#sun)"/>
+    <circle cx="380" cy="225" r="96" fill="none" stroke="#FFB27A" stroke-opacity=".35" stroke-width="1.5"/>
+    <path d="M330 170c26 15 44 44 46 76" fill="none" stroke="#FFE3CB" stroke-opacity=".28" stroke-width="3"/>
+  </g>
+  <g>
+    <circle cx="556" cy="176" r="13" fill="#24E0B0"/>
+    <circle cx="556" cy="176" r="13" fill="none" stroke="#9FF6DE" stroke-opacity=".5"/>
+    <circle cx="206" cy="248" r="10" fill="#FFC24B"/>
+    <circle cx="300" cy="330" r="8" fill="#FF5B72"/>
+    <circle cx="470" cy="300" r="6" fill="#E8E2D4"/>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" fill="#E8E2D4">
+    <text x="36" y="52" font-size="12" letter-spacing="4" opacity=".55">ORBIT / 05</text>
+    <text x="36" y="76" font-size="10" letter-spacing="3" opacity=".3">PERSONAL SYSTEM</text>
+    <text x="36" y="386" font-size="11" letter-spacing="2.4" opacity=".45">5 PLANETS · 1 PAGE</text>
+    <text x="604" y="386" font-size="11" letter-spacing="2" opacity=".35" text-anchor="end">ZJW · 2026</text>
+  </g>
+  <rect x="36" y="96" width="34" height="2" fill="#FF6A1A"/>
+</svg>

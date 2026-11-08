@@ -1,0 +1,315 @@
+/* ------------------------------------------------------------------
+   张镓文 · 星系 — 可编辑内容源（由 build_site.py 生成，别手改）
+   页面加载时写入 localStorage（键：zjw-orbit-site-v2）。
+   改文字 / 图片 / 链接，只改 content.json，然后跑 build_site.py。
+   文案规则：口语、具体、每句不超过 15 个字。
+   ------------------------------------------------------------------ */
+window.SEED_VERSION = "2026-11-08-ca1e5c5d";
+window.SITE_CONTENT = {
+  "profile": {
+    "name": "张镓文",
+    "en": "ZHANG JIAWEN",
+    "oneLiner": "大二，写代码，也写作业。",
+    "status": "在线 · 正在赶作业",
+    "email": "2512188803@qq.com",
+    "github": "https://github.com/Dongshuiz",
+    "blog": "./archive.html",
+    "location": "杭州 · 中国"
+  },
+  "planets": [
+    {
+      "key": "works",
+      "name": "作品",
+      "en": "WORKS",
+      "hint": "5 个，全上线",
+      "icon": "mdi:rocket-launch-outline",
+      "hue": "#FF6A1A",
+      "hue2": "#5C1C00",
+      "size": 84,
+      "orbit": {
+        "r": 1.04,
+        "speed": 0.055,
+        "phase": 0.4
+      },
+      "fx": "sats"
+    },
+    {
+      "key": "skills",
+      "name": "能力",
+      "en": "SKILLS",
+      "hint": "4 项成绩，6 条自评",
+      "icon": "mdi:flash-outline",
+      "hue": "#24E0B0",
+      "hue2": "#04463A",
+      "size": 68,
+      "orbit": {
+        "r": 0.6,
+        "speed": -0.075,
+        "phase": 2.1
+      },
+      "fx": "ticks"
+    },
+    {
+      "key": "study",
+      "name": "经历",
+      "en": "STUDY",
+      "hint": "3 站，走到大二",
+      "icon": "mdi:orbit-variant",
+      "hue": "#FFC24B",
+      "hue2": "#5A3A00",
+      "size": 76,
+      "orbit": {
+        "r": 0.84,
+        "speed": 0.062,
+        "phase": 3.6
+      },
+      "fx": "rings"
+    },
+    {
+      "key": "hobbies",
+      "name": "爱好",
+      "en": "HOBBIES",
+      "hint": "4 个，球和相机",
+      "icon": "mdi:heart-outline",
+      "hue": "#FF5B72",
+      "hue2": "#5A0C1C",
+      "size": 62,
+      "orbit": {
+        "r": 1.26,
+        "speed": -0.048,
+        "phase": 5
+      },
+      "fx": "sparks"
+    },
+    {
+      "key": "contact",
+      "name": "找我",
+      "en": "CONTACT",
+      "hint": "回消息很快",
+      "icon": "mdi:send-outline",
+      "hue": "#E8E2D4",
+      "hue2": "#3A3B36",
+      "size": 56,
+      "orbit": {
+        "r": 1.52,
+        "speed": 0.04,
+        "phase": 0.9
+      },
+      "fx": "pulse"
+    }
+  ],
+  "works": [
+    {
+      "id": "site",
+      "name": "这个星系",
+      "line": "五颗行星，CSS 画的。轨道用 rAF 算。",
+      "stack": "React · Canvas · CSS",
+      "img": "./assets/covers/site.svg",
+      "role": "设计 / 前端 / 部署",
+      "period": "2026",
+      "detail": [
+        "本站就是作品 01。",
+        "五颗行星，五个板块。",
+        "行星用 CSS 画。",
+        "轨道用 rAF 算。",
+        "手机端收成抽屉。",
+        "React 18 + Vite。没有动画库。"
+      ],
+      "story": "最开始只是想把简历里塞不下的东西找个地方放，后来做成了五颗行星，一颗一个板块。手机端最麻烦，行星在窄屏上会挤成一团，标签也互相压，最后把面板改成底部抽屉才算能看。轨道是手写的 rAF，没用动画库，转快了还是有点抖。",
+      "note": "手机上行星会挤，最后改成了底部抽屉。"
+    },
+    {
+      "id": "todo",
+      "name": "待办事项",
+      "line": "优先级、分类、逾期筛选。数据存本地，刷新不丢。",
+      "stack": "Zustand · 本地存储",
+      "img": "./assets/covers/todo.svg",
+      "tool": "todo-pro",
+      "role": "设计 / 前端",
+      "period": "2026",
+      "detail": [
+        "给自己用的待办。",
+        "优先级、分类、截止日。",
+        "搜标题，筛逾期。",
+        "数据存在浏览器。",
+        "刷新不丢，也不用登录。"
+      ],
+      "story": "作业、比赛、帮室友修电脑，事情一多就记不住，便签又总丢，所以写了个放在浏览器里的清单。最早筛选、编辑、排序全挤在一个状态里，改一处崩三处，后来拆成四块才写下去。现在里面还存着 47 条，完成 31 条，剩下的懒得删。",
+      "note": "筛选、编辑、排序挤在一个状态里，改一处崩三处。"
+    },
+    {
+      "id": "note",
+      "name": "Markdown 笔记",
+      "line": "左边写，右边看。自动保存。不用按 Ctrl+S。",
+      "stack": "react-markdown",
+      "img": "./assets/covers/note.svg",
+      "tool": "note-md",
+      "role": "设计 / 前端",
+      "period": "2026",
+      "detail": [
+        "左边写，右边看。",
+        "自动保存。Ctrl+S 也行。",
+        "按标题搜笔记。",
+        "加粗用 Ctrl+B。"
+      ],
+      "story": "每周交周报，用 Word 调格式很烦，就想要个左边写、右边看的地方。自动保存一开始是每敲一个字就存，输入法还没上屏就存进去了，后来改成停手再存。预览也慢，加了点延迟才不卡。",
+      "note": "自动保存一开始每敲一个字就存，输入法还没上屏就存进去了。"
+    },
+    {
+      "id": "timer",
+      "name": "番茄钟",
+      "line": "专注 25 分钟。休息 5 分钟。4 轮后长休。",
+      "stack": "Notification API",
+      "img": "./assets/covers/timer.svg",
+      "tool": "pomodoro",
+      "role": "设计 / 前端",
+      "period": "2026",
+      "detail": [
+        "25 分钟专注。",
+        "5 分钟摸鱼。",
+        "4 轮后长休 15 分钟。",
+        "带桌面通知。",
+        "7 天完成统计。"
+      ],
+      "story": "本来是想治自己一坐下就摸手机。手机自带的计时器太容易切走，就搬进浏览器。切到后台标签页，计时会变慢，后来改成用时间戳对，不靠 setInterval 累加。通知权限的弹窗挺烦，但不开又不知道结束。",
+      "note": "切到后台计时会变慢，后来用时间戳对。"
+    },
+    {
+      "id": "weather",
+      "name": "天气查询",
+      "line": "搜城市、定位、收藏。数据来自 Open-Meteo。免密钥。",
+      "stack": "Open-Meteo",
+      "img": "./assets/covers/weather.svg",
+      "tool": "weather",
+      "role": "设计 / 前端",
+      "period": "2026",
+      "detail": [
+        "搜城市，或直接定位。",
+        "收藏常看的城市。",
+        "今天、降水、体感都有。",
+        "数据来自 Open-Meteo。",
+        "不用申请 Key。"
+      ],
+      "story": "出门前总想知道要不要带伞，天气 App 广告又太多，就接了个免费的 Open-Meteo。城市重名很麻烦，搜“朝阳”会出来一堆，只能让用户自己选。定位失败也得给提示，不然页面就空着。",
+      "note": "城市重名，搜“朝阳”会出来一堆。"
+    }
+  ],
+  "awards": [
+    {
+      "year": "2025",
+      "name": "二等奖学金",
+      "line": "专业前 15%。我妈终于放心了。"
+    },
+    {
+      "year": "2025",
+      "name": "GPA 3.7 / 4.0",
+      "line": "Web 95，高数 68。及格万岁。"
+    },
+    {
+      "year": "2024",
+      "name": "校程序赛三等奖",
+      "line": "10 题过 7 题。剩下真不会。"
+    },
+    {
+      "year": "2024",
+      "name": "英语六级 528",
+      "line": "看英文报错不用翻译了。"
+    }
+  ],
+  "meters": [
+    {
+      "name": "TypeScript / React",
+      "v": 86,
+      "proof": "主站 + 4 个工具。"
+    },
+    {
+      "name": "HTML / CSS",
+      "v": 90,
+      "proof": "五颗行星，纯 CSS。"
+    },
+    {
+      "name": "Python（课上学的）",
+      "v": 76,
+      "proof": "课上学的。能写脚本。"
+    },
+    {
+      "name": "Git 提交（不乱写）",
+      "v": 80,
+      "proof": "3 个仓库，提交有说明。"
+    },
+    {
+      "name": "Vite 打包调优",
+      "v": 78,
+      "proof": "主站 191KB，工具按需加载。"
+    },
+    {
+      "name": "公网部署 ×2 平台",
+      "v": 84,
+      "proof": "GitHub Pages 上跑着。"
+    }
+  ],
+  "intro": "大二，计算机专业。成绩中上，爱动手。星系和 4 个工具。我一个人搭的。设计、前端、部署。主站挂在 GitHub。工具都在站内。点开就能用。",
+  "timeline": [
+    {
+      "period": "2025 — 现在",
+      "title": "大二在读",
+      "line": "白天上课，晚上写项目。4 个工具，晚自习写的。"
+    },
+    {
+      "period": "2024 — 2025",
+      "title": "自学前端",
+      "line": "从 CSS 居中开始。5 个月后，第一个站上线。"
+    },
+    {
+      "period": "2022 — 2025",
+      "title": "高中",
+      "line": "信息学小组。打出 Hello World。从此入坑。"
+    }
+  ],
+  "hobbies": [
+    {
+      "icon": "mdi:basketball",
+      "name": "打篮球",
+      "line": "院队替补。场均 12 分钟。抢 3 个板。",
+      "img": "./assets/hobbies/ball.jpg"
+    },
+    {
+      "icon": "mdi:gamepad-variant-outline",
+      "name": "打 P5",
+      "line": "这站的配色，抄它的。",
+      "img": "./assets/hobbies/game.jpg"
+    },
+    {
+      "icon": "mdi:camera-iris",
+      "name": "扫街拍照",
+      "line": "拍 3000 张。能看 30 张。",
+      "img": "./assets/hobbies/street.jpg"
+    },
+    {
+      "icon": "mdi:notebook-edit-outline",
+      "name": "写笔记",
+      "line": "每周 1 篇。工具为它做的。",
+      "img": "./assets/hobbies/note.jpg"
+    }
+  ],
+  "links": [
+    {
+      "icon": "mdi:email-outline",
+      "label": "邮箱",
+      "value": "2512188803@qq.com",
+      "href": "mailto:2512188803@qq.com"
+    },
+    {
+      "icon": "mdi:github",
+      "label": "GitHub",
+      "value": "github.com/Dongshuiz",
+      "href": "https://github.com/Dongshuiz"
+    },
+    {
+      "icon": "mdi:file-document-outline",
+      "label": "档案",
+      "value": "一页看完所有内容",
+      "href": "./archive.html"
+    }
+  ]
+};

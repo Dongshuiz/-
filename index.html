@@ -1,22 +1,77 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="张镓文的星系：五颗星，五种自我介绍。点一颗，飞过去看。" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>张镓文 · 前端 / 计算机大二 · 作品与档案</title>
+    <meta
+      name="description"
+      content="张镓文的个人站：5 个上线作品、GPA 3.7、校程序赛三等奖。作品、能力、经历、爱好与联系方式，一页看完。"
+    />
+    <meta name="author" content="张镓文" />
     <meta name="theme-color" content="#06080B" />
-    <title>张镓文 · 星系</title>
+    <link rel="canonical" href="https://dongshuiz.github.io/-/" />
+
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="张镓文 · 前端 / 计算机大二" />
+    <meta
+      property="og:description"
+      content="5 个上线作品。GPA 3.7。校程序赛三等奖。点开看作品，或者直接翻档案。"
+    />
+    <meta property="og:url" content="https://dongshuiz.github.io/-/" />
+    <meta property="og:image" content="https://dongshuiz.github.io/-/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="张镓文 · 前端 / 计算机大二" />
+    <meta
+      name="twitter:description"
+      content="5 个上线作品。GPA 3.7。校程序赛三等奖。"
+    />
+    <meta name="twitter:image" content="https://dongshuiz.github.io/-/og.jpg" />
+
+    <link rel="preload" href="./assets/fonts/bricolage-grotesque-700.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./assets/fonts.css" />
+    <link rel="stylesheet" href="./assets/index-hNXhnxeJ.css" />
+    <link rel="stylesheet" href="./assets/site-fixes.css" />
 
     <!-- 图标：Iconify -->
     <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+    <script>
+      window.__RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    </script>
+
+    <!-- 内容源：先写入 localStorage，React 启动时读取。改内容只改 content.js -->
+    <script src="./assets/content.js"></script>
+    <script>
+      (function () {
+        try {
+          var key = "zjw-orbit-site-v2";
+          var ver = window.SEED_VERSION || "1";
+          if (window.SITE_CONTENT && localStorage.getItem("zjw-seed-version") !== ver) {
+            localStorage.setItem(key, JSON.stringify(window.SITE_CONTENT));
+            localStorage.setItem("zjw-seed-version", ver);
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "张镓文",
+        "alternateName": "ZHANG JIAWEN",
+        "url": "https://dongshuiz.github.io/-/",
+        "sameAs": ["https://github.com/Dongshuiz"],
+        "jobTitle": "计算机专业学生 / 前端开发",
+        "address": { "@type": "PostalAddress", "addressLocality": "杭州", "addressCountry": "CN" },
+        "knowsAbout": ["React", "TypeScript", "CSS", "Vite", "Git"]
+      }
+    </script>
 
     <style>
       html, body { margin: 0; background: #06080b; color: #e8e2d4; }
@@ -62,14 +117,27 @@
       @keyframes bootOrbit { to { offset-distance: 100%; } }
       #root:not(:empty) + #boot { display: none; }
     </style>
-    <script type="module" crossorigin src="./assets/index-DnvhwS0a.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-hNXhnxeJ.css">
+
+    <script type="module" crossorigin src="./assets/index-Dq7kP2m4.js"></script>
+    <script type="module" src="./assets/site-fixes.js"></script>
   </head>
   <body>
     <div id="root"></div>
     <div id="boot">
       <div class="sys"><i></i><i></i><b></b><span class="s"></span></div>
       <p>正在点火</p>
+    </div>
+
+    <div id="static-fallback" class="nojs">
+      <div class="nojs-inner">
+        <p class="kicker" style="font-family: ui-monospace, monospace; font-size: 11px; letter-spacing: .3em;">
+          ZJW / ORBIT · 2026
+        </p>
+        <h1>张镓文</h1>
+        <p>大二，写代码，也写作业。</p>
+        <p>5 个上线作品。GPA 3.7。校程序赛三等奖。杭州。</p>
+        <p><a href="./archive.html">看档案版</a><a href="mailto:2512188803@qq.com">发邮件</a></p>
+      </div>
     </div>
   </body>
 </html>

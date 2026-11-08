@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="待办事项：优先级列表界面">
+  <defs>
+    <linearGradient id="tdGlow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FF6A1A" stop-opacity=".18"/>
+      <stop offset="100%" stop-color="#FF6A1A" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="420" fill="#0A0E14"/>
+  <rect width="640" height="420" fill="url(#tdGlow)"/>
+  <g font-family="ui-monospace, Menlo, monospace" fill="#E8E2D4">
+    <text x="40" y="54" font-size="12" letter-spacing="4" opacity=".55">TODO / 47</text>
+    <text x="40" y="84" font-size="9" letter-spacing="3" opacity=".3">LOCAL FIRST · NO ACCOUNT</text>
+  </g>
+  <line x1="40" y1="104" x2="600" y2="104" stroke="#E8E2D4" stroke-opacity=".12"/>
+  <g font-family="Inter, system-ui, sans-serif">
+    <g transform="translate(40 128)">
+      <rect x="0" y="0" width="560" height="62" fill="#E8E2D4" fill-opacity=".03"/>
+      <rect x="18" y="21" width="20" height="20" fill="none" stroke="#24E0B0" stroke-width="1.5"/>
+      <path d="M22 31l5 5 9-10" fill="none" stroke="#24E0B0" stroke-width="2"/>
+      <text x="56" y="30" font-size="15" fill="#E8E2D4" opacity=".45" text-decoration="line-through">写完周报，导出 PDF</text>
+      <text x="56" y="48" font-size="10" fill="#E8E2D4" opacity=".25">工作 · 今天</text>
+      <rect x="486" y="21" width="56" height="20" fill="#24E0B0" fill-opacity=".12"/>
+      <text x="514" y="35" font-size="9" text-anchor="middle" fill="#24E0B0" letter-spacing="1">DONE</text>
+    </g>
+    <g transform="translate(40 200)">
+      <rect x="0" y="0" width="560" height="62" fill="#FF6A1A" fill-opacity=".06"/>
+      <rect x="18" y="21" width="20" height="20" fill="none" stroke="#E8E2D4" stroke-opacity=".35" stroke-width="1.5"/>
+      <text x="56" y="30" font-size="15" fill="#E8E2D4">把番茄钟的统计图接上</text>
+      <text x="56" y="48" font-size="10" fill="#E8E2D4" opacity=".35">学习 · 逾期 1 天</text>
+      <rect x="486" y="21" width="56" height="20" fill="#FF6A1A" fill-opacity=".14"/>
+      <text x="514" y="35" font-size="9" text-anchor="middle" fill="#FF8A4A" letter-spacing="1">HIGH</text>
+    </g>
+    <g transform="translate(40 272)">
+      <rect x="0" y="0" width="560" height="62" fill="#E8E2D4" fill-opacity=".03"/>
+      <rect x="18" y="21" width="20" height="20" fill="none" stroke="#E8E2D4" stroke-opacity=".35" stroke-width="1.5"/>
+      <text x="56" y="30" font-size="15" fill="#E8E2D4">给天气页加收藏城市</text>
+      <text x="56" y="48" font-size="10" fill="#E8E2D4" opacity=".35">生活 · 周五</text>
+      <rect x="486" y="21" width="56" height="20" fill="#FFC24B" fill-opacity=".1"/>
+      <text x="514" y="35" font-size="9" text-anchor="middle" fill="#FFC24B" letter-spacing="1">MID</text>
+    </g>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" fill="#E8E2D4">
+    <text x="40" y="388" font-size="10" letter-spacing="2.4" opacity=".4">31 / 47 DONE</text>
+    <text x="600" y="388" font-size="10" letter-spacing="2.4" opacity=".3" text-anchor="end">LOCALSTORAGE</text>
+  </g>
+</svg>

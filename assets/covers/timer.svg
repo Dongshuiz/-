@@ -1,0 +1,35 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" width="640" height="420" role="img" aria-label="番茄钟：25 分钟专注计时界面">
+  <defs>
+    <radialGradient id="tmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF6A1A" stop-opacity=".22"/>
+      <stop offset="100%" stop-color="#FF6A1A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="420" fill="#0A0E14"/>
+  <circle cx="320" cy="214" r="205" fill="url(#tmGlow)"/>
+  <g font-family="ui-monospace, Menlo, monospace" fill="#E8E2D4">
+    <text x="36" y="50" font-size="12" letter-spacing="4" opacity=".55">FOCUS / 04</text>
+    <text x="36" y="74" font-size="9" letter-spacing="3" opacity=".3">25 / 5 / 15</text>
+  </g>
+  <g transform="translate(320 214)">
+    <circle r="132" fill="none" stroke="#E8E2D4" stroke-opacity=".1" stroke-width="10"/>
+    <circle r="132" fill="none" stroke="#FF6A1A" stroke-width="10" stroke-linecap="round"
+            stroke-dasharray="580 250" transform="rotate(-90)"/>
+    <g stroke="#E8E2D4" stroke-opacity=".22">
+      <path d="M0 -158V-146M0 158V146M-158 0H-146M158 0H146"/>
+    </g>
+    <text y="14" text-anchor="middle" font-size="64" font-weight="700" fill="#E8E2D4" font-family="Inter, system-ui, sans-serif">25:00</text>
+    <text y="48" text-anchor="middle" font-size="10" letter-spacing="5" fill="#FF8A4A">FOCUS</text>
+  </g>
+  <g transform="translate(320 372)" font-family="ui-monospace, Menlo, monospace">
+    <circle cx="-36" cy="0" r="4" fill="#FF6A1A"/>
+    <circle cx="-12" cy="0" r="4" fill="#FF6A1A"/>
+    <circle cx="12" cy="0" r="4" fill="#FF6A1A"/>
+    <circle cx="36" cy="0" r="4" fill="#E8E2D4" fill-opacity=".18"/>
+    <text x="0" y="24" text-anchor="middle" font-size="9" letter-spacing="2" fill="#E8E2D4" opacity=".35">3 / 4 ROUNDS</text>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" fill="#E8E2D4">
+    <text x="604" y="50" font-size="10" letter-spacing="2" opacity=".3" text-anchor="end">NOTIFY</text>
+    <text x="604" y="74" font-size="10" letter-spacing="2" opacity=".3" text-anchor="end">7D STATS</text>
+  </g>
+</svg>
