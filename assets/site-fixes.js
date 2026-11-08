@@ -1,4 +1,4 @@
-﻿/* ------------------------------------------------------------------
+/* ------------------------------------------------------------------
    站点修订层 — 首屏信息、导航、焦点与快捷键
    只做增强，不改动原 React 的数据与渲染逻辑。
    ------------------------------------------------------------------ */
@@ -70,7 +70,8 @@
       for (var i = 1; i < existing.length; i++) existing[i].remove();
     }
     if (!$("#hero-extra")) {
-      header.insertBefore(buildHeroExtra(), header.lastElementChild);
+      // 挂在 body 上，避免 header 的 transform 让 fixed 定位短暂失效
+      document.body.appendChild(buildHeroExtra());
     }
   }
 
@@ -106,6 +107,7 @@
     var focused = !!key;
     document.body.classList.toggle("is-focused", focused);
     document.body.classList.toggle("is-admin", isAdmin());
+    setupPublish();
 
     if (focused && !lastPlanet) {
       lastPlanet = $all(".planet").filter(function (p) {
@@ -147,6 +149,117 @@
       }
     }
     wasFocused = focused;
+  }
+
+  /* ---------- 发布到 GitHub ---------- */
+  var GH_REPO = "Dongshuiz/-";
+  var GH_PATH = "content.json";
+
+  function b64utf8(str) {
+    return btoa(unescape(encodeURIComponent(str)));
+  }
+
+  function setupPublish() {
+    var existing = document.getElementById("publish-btn");
+    if (!isAdmin()) {
+      if (existing) existing.remove();
+      return;
+    }
+    if (existing) return;
+    var btn = document.createElement("button");
+    btn.id = "publish-btn";
+    btn.type = "button";
+    btn.textContent = "发布到线上";
+    btn.title = "把当前内容提交到 GitHub；访客约 1 分钟后看到";
+    btn.addEventListener("click", function () { publish(btn); });
+    document.body.appendChild(btn);
+  }
+
+  async function publish(btn) {
+    var raw = localStorage.getItem("zjw-orbit-site-v2");
+    if (!raw) {
+      alert("没有可发布的内容。先在控制舱里改点什么。");
+      return;
+    }
+    var data;
+    try {
+      data = JSON.parse(raw);
+    } catch (e) {
+      alert("内容解析失败。");
+      return;
+    }
+
+    // 后台表单没有 story / note，发布时从当前构建内容里补齐，避免丢字段
+    var base = window.SITE_CONTENT || {};
+    (data.works || []).forEach(function (w) {
+      var s = (base.works || []).filter(function (x) {
+        return x.id === w.id || x.name === w.name;
+      })[0];
+      if (s) {
+        ["story", "note", "role", "period", "detail"].forEach(function (k) {
+          if (!w[k] && s[k]) w[k] = s[k];
+        });
+      }
+    });
+
+    var token = localStorage.getItem("zjw-gh-token");
+    if (!token) {
+      token = prompt("填一次 GitHub token（fine-grained，只勾这个仓库的 Contents: Read and write）：");
+      if (!token) return;
+      localStorage.setItem("zjw-gh-token", token.trim());
+    }
+
+    var version = new Date().toISOString();
+    data.version = version;
+    var api = "https://api.github.com/repos/" + GH_REPO + "/contents/" + GH_PATH;
+    btn.disabled = true;
+    btn.textContent = "发布中…";
+
+    try {
+      var headers = {
+        Authorization: "Bearer " + token,
+        Accept: "application/vnd.github+json"
+      };
+      var get = await fetch(api, { headers: headers });
+      var sha = null;
+      if (get.status === 404) {
+        sha = null;
+      } else if (get.ok) {
+        sha = (await get.json()).sha;
+      } else {
+        throw new Error(get.status === 401 ? "token 无效或没有权限" : "读取 content.json 失败：" + get.status);
+      }
+
+      var body = {
+        message: "content: publish " + version,
+        content: b64utf8(JSON.stringify(data, null, 2)),
+        branch: "main"
+      };
+      if (sha) body.sha = sha;
+
+      var put = await fetch(api, {
+        method: "PUT",
+        headers: Object.assign({ "Content-Type": "application/json" }, headers),
+        body: JSON.stringify(body)
+      });
+      if (put.status === 401 || put.status === 403) {
+        localStorage.removeItem("zjw-gh-token");
+        throw new Error("token 无效或没有权限，请重新填");
+      }
+      if (!put.ok) throw new Error("提交失败：" + put.status);
+
+      localStorage.setItem("zjw-remote-version", version);
+      btn.textContent = "已发布";
+      alert("已提交到 GitHub。等 Pages 构建完（约 1 分钟），访客刷新就能看到。");
+      window.setTimeout(function () {
+        btn.disabled = false;
+        btn.textContent = "发布到线上";
+      }, 2600);
+    } catch (e) {
+      btn.disabled = false;
+      btn.textContent = "发布到线上";
+      alert("发布失败：" + e.message);
+    }
   }
 
   /* ---------- 事件 ---------- */

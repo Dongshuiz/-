@@ -4,7 +4,7 @@
    改文字 / 图片 / 链接，只改 content.json，然后跑 build_site.py。
    文案规则：口语、具体、每句不超过 15 个字。
    ------------------------------------------------------------------ */
-window.SEED_VERSION = "2026-11-08-ca1e5c5d";
+window.SEED_VERSION = "2026-11-08-f9c129bd";
 window.SITE_CONTENT = {
   "profile": {
     "name": "张镓文",
@@ -311,5 +311,6 @@ window.SITE_CONTENT = {
       "value": "一页看完所有内容",
       "href": "./archive.html"
     }
-  ]
+  ],
+  "version": "2026-11-08T00:00:00+08:00"
 };

@@ -118,8 +118,40 @@
       #root:not(:empty) + #boot { display: none; }
     </style>
 
-    <script type="module" crossorigin src="./assets/index-Dq7kP2m4.js"></script>
-    <script type="module" src="./assets/site-fixes.js"></script>
+    <script>
+      (function () {
+        var started = false;
+        function boot() {
+          if (started) return;
+          started = true;
+          var app = document.createElement("script");
+          app.type = "module";
+          app.src = "./assets/index-F8s3Lw7n.js";
+          app.onload = function () {
+            var fix = document.createElement("script");
+            fix.type = "module";
+            fix.src = "./assets/site-fixes.js";
+            document.head.appendChild(fix);
+          };
+          document.head.appendChild(app);
+        }
+        var timer = setTimeout(boot, 2500);
+        fetch("./content.json?ts=" + Date.now(), { cache: "no-store" })
+          .then(function (r) { return r.ok ? r.json() : null; })
+          .then(function (d) {
+            if (d && d.version && localStorage.getItem("zjw-remote-version") !== d.version) {
+              try {
+                localStorage.setItem("zjw-orbit-site-v2", JSON.stringify(d));
+                localStorage.setItem("zjw-remote-version", d.version);
+              } catch (e) {}
+            }
+            if (d) window.SITE_CONTENT = d;
+            clearTimeout(timer);
+            boot();
+          })
+          .catch(function () { clearTimeout(timer); boot(); });
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

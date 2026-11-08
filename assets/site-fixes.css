@@ -25,7 +25,7 @@ html, body, button, input, textarea {
   position: fixed;
   left: 40px;
   bottom: 60px;
-  z-index: 25;
+  z-index: 30;
   max-width: 600px;
   margin: 0;
   pointer-events: auto;
@@ -137,7 +137,7 @@ body.is-focused .planet .plabel {
   outline-offset: 3px;
 }
 .dock:focus { outline: none; }
-button[title^="改内容"] { display: none !important; }
+/* 改内容入口保留，放在右下角 */
 
 /* ---------- 3. 面板阅读体验 ---------- */
 @media (min-width: 901px) {
@@ -177,12 +177,20 @@ button[title^="改内容"] { display: none !important; }
 
 /* ---------- 5. 移动端：底部索引条 ---------- */
 @media (max-width: 900px) {
+  button[title^="改内容"] {
+    position: fixed;
+    right: 14px;
+    top: 14px;
+    z-index: 55;
+    background: rgba(8, 11, 16, .82);
+  }
+
   #hero-extra {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 38px;
-    z-index: 25;
+    z-index: 30;
     max-width: none;
     margin: 0;
     padding: 0 16px;
@@ -252,4 +260,26 @@ button[title^="改内容"] { display: none !important; }
   border: 1px solid rgba(232, 226, 212, .25);
   color: #e8e2d4;
   text-decoration: none;
+}
+
+/* ---------- 7. 发布按钮 ---------- */
+#publish-btn {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 95;
+  padding: 10px 15px;
+  border: 1px solid #ff6a1a;
+  background: #ff6a1a;
+  color: #120803;
+  font-family: "IBM Plex Sans", "PingFang SC", sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+#publish-btn:hover { background: #ff8a4a; }
+#publish-btn:disabled { opacity: .6; cursor: default; }
+@media (max-width: 900px) {
+  #publish-btn { right: 14px; bottom: 14px; }
 }
